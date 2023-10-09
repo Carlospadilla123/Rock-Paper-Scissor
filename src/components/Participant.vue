@@ -16,7 +16,7 @@ import { type IWeapon } from '@/views/HomeView.vue';
 
 <template>
    <div class="participant">
-        <div class="participant-description">
+        <div class="participant__description">
           <h2>{{ title }}</h2>
           <p>{{ description }}</p>
         </div>
@@ -44,7 +44,7 @@ import { type IWeapon } from '@/views/HomeView.vue';
     flex-direction: column;
     flex: 1;
 }
-.participant-description{
+.participant__description{
     display: flex;
     flex-direction: column;
     align-items: center;

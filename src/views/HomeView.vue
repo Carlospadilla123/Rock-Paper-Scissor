@@ -81,8 +81,6 @@ export interface IWeapon {
   weakness: WeaponsType[];
   strengths: WeaponsType[];
 }
-
-
 </script>
 
 <template>
