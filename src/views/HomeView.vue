@@ -14,12 +14,6 @@ enum Winner {
   DRAW = "DRAW"
 }
 
-enum MatchState {
-  WINNER = "WINNER",
-  LOOSER = 'LOOSER',
-  DRAW = "DRAW"
-}
-
 const weapons:IWeapon[] = [
   {
     icon: "&#128511;",
