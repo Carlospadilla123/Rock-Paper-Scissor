@@ -37,6 +37,30 @@ describe('Given a game that have playing answers rock, paper, scissors, lizard, 
     })
   })
 
+  describe('when scissors for the player and machine got broke and dont pick anything', () => {
+    test('then, the player and the machine should draw', () => {
+      const result = calculateWinner(scissors, undefined)
+      console.log(result)
+      expect(result).toBe(Winner.DRAW)
+    })
+  })
+
+  describe('when player dont pick anything and machine got rock', () => {
+    test('then, the player and the machine should draw', () => {
+      const result = calculateWinner(undefined, rock)
+      console.log(result)
+      expect(result).toBe(Winner.DRAW)
+    })
+  })
+
+  describe('when player dont pick anything and machine got broke and dont pick anything', () => {
+    test('then, the player and the machine should draw', () => {
+      const result = calculateWinner(undefined, undefined)
+      console.log(result)
+      expect(result).toBe(Winner.DRAW)
+    })
+  })
+
   describe('when machine choose an option', () => {
     test('then, that option should be one of the available ones', () => {
       const result = generateRandomWeaponPick()

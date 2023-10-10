@@ -54,8 +54,8 @@ export const weapons:IWeapon[] = [
 
 
 export const calculateWinner = (player:IWeapon, machine:IWeapon):Winner  => {
-    if (machine.strengths.includes(player.value)) return Winner.MACHINE
-    else if (machine.weakness.includes(player.value)) return Winner.PLAYER
+    if (machine?.strengths?.includes(player?.value)) return Winner.MACHINE
+    else if (machine?.weakness?.includes(player?.value)) return Winner.PLAYER
     return Winner.DRAW
   }
   
