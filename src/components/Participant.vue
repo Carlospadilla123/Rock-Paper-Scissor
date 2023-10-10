@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type IWeapon } from '@/views/HomeView.vue';
+import type { IWeapon } from '@/views/HomeView.vue';
 
     defineProps<{
         title:string,
@@ -33,6 +33,7 @@ import { type IWeapon } from '@/views/HomeView.vue';
                     `"
                 v-for="item in weapons"
                 @click="$emit('onSelect', item)"
+                :key="item.value"
             ><p v-html="item.icon"></p></button>
         </div>
       </div>
