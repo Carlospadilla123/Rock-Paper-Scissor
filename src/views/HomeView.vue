@@ -1,39 +1,7 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-import Participant from '../components/Participant.vue'
-
-enum WeaponsType {
-  ROCK = "ROCK",
-  PAPER = "PAPER",
-  SCISSOR = "SCISSOR"
-}
-
-enum Winner {
-  PLAYER = "PLAYER",
-  MACHINE = "MACHINE",
-  DRAW = "DRAW"
-}
-
-const weapons:IWeapon[] = [
-  {
-    icon: "&#128511;",
-    value: WeaponsType.ROCK,
-    weakness: [WeaponsType.PAPER],
-    strengths: [WeaponsType.SCISSOR]
-  },
-  {
-    icon: "&#129531;",
-    value: WeaponsType.PAPER,
-    weakness: [WeaponsType.SCISSOR],
-    strengths: [WeaponsType.ROCK]
-  },
-  {
-    icon: "&#9986;&#65039;",
-    value: WeaponsType.SCISSOR,
-    weakness: [WeaponsType.ROCK],
-    strengths: [WeaponsType.PAPER]
-  },
-]
+import Participant from './Participant.vue'
+import { calculateWinner, generateRandomWeaponPick, weapons, type IWeapon, Winner } from './script';
 
 const playersState = reactive<{
   isLoading: boolean;
@@ -61,26 +29,8 @@ const handleWeaponPick = (weapon:IWeapon):void => {
     playersState.winner = calculateWinner(playerSelection as IWeapon, machinePick)
     playersState.isLoading = false
   }, 1000)
-
 }
 
-const calculateWinner = (player:IWeapon, machine:IWeapon):Winner  => {
-  if (machine.strengths.includes(player.value)) return Winner.MACHINE
-  else if (machine.weakness.includes(player.value)) return Winner.PLAYER
-  return Winner.DRAW
-}
-
-const generateRandomWeaponPick = ():IWeapon => {
-  const choose = Math.floor(Math.random() * weapons.length - 0.1)
-  return weapons[choose]
-}
-
-export interface IWeapon {
-  icon: string;
-  value: WeaponsType;
-  weakness: WeaponsType[];
-  strengths: WeaponsType[];
-}
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type IWeapon } from '@/views/HomeView.vue';
+import { type IWeapon } from '@/views/script';
 
     defineProps<{
         title:string,

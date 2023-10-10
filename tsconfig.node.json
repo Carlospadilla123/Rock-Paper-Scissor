@@ -8,6 +8,9 @@
     "playwright.config.*"
   ],
   "compilerOptions": {
+    // "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    // "moduleResolution": "bundler",
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
